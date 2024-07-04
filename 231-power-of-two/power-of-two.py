@@ -1,14 +1,31 @@
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
+        ''' 
+        if interger n is a power of 2, meaning 2^x == n
+
+        Recursive
+
+        create a recusrive function call, if 2^x == n, return true else false
+        x= 0, while x < n, base case x//2
+
+
         '''
-        return if value is power of 2, meaning if square root of n equals 
+        if n == 1:
+            return True
 
-        sqrtn = 4
-        2^4 = 16
-
-
-        '''
         if n <= 0:
             return False
-        return (n & (n - 1)) == 0
 
+        def helper(x):
+            if 2 ** x == n:
+                return True
+                
+            # If 2^x exceeds n, return False
+            elif 2 ** x > n:
+                return False
+                
+            # Recursive case: increment x and check again
+            return helper(x + 1)
+        
+        # Start recursion with x = 0
+        return helper(0)
