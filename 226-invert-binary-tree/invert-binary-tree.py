@@ -9,12 +9,11 @@ class Solution:
         if not root:
             return None
         
-        temp = root.left
+        # Swap the left and right subtrees
+        root.left, root.right = root.right, root.left
 
-        root.left = root.right
-        root.right = temp
-
+        # Recursively invert the left and right subtrees
         self.invertTree(root.left)
         self.invertTree(root.right)
-
+        
         return root
