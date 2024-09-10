@@ -7,14 +7,11 @@ class MyQueue:
         self.stack.append(x)
 
     def pop(self) -> int:
-        if not self.empty():
-            return self.stack.pop(0)  # Remove and return the first element (FIFO)
-        return -1  # Return a default value if the queue is empty
+        return self.stack.pop(0)  # Remove and return the first element (FIFO)
+         # Return a default value if the queue is empty
 
     def peek(self) -> int:
-        if not self.empty():
-            return self.stack[0]  # Return the first element without removing it
-        return -1  # Return a default value if the queue is empty
+       return self.stack[0]  # Return the first element without removing it
 
     def empty(self) -> bool:
         if not self.stack:
