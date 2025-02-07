@@ -1,22 +1,28 @@
 # Definition for singly-linked list.
 # class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
+        ''' 
+        store list node objects in an array
+        if we encoutner the same list node object again, return true
+        set iteration limit of twice the length of the list to avoid infinte loop
 
-        slow = fast = head
+        '''
 
-        if not head or not head.next:
-            return False
-        
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
+        arr = []
+        cur = head
 
-            if slow == fast:
+        while cur:
+
+            if cur in arr:
                 return True
+
+            arr.append(cur)
+            cur = cur.next
         return False
-        
+
+
