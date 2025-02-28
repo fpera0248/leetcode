@@ -1,20 +1,20 @@
 class Solution:
     def findPermutationDifference(self, s: str, t: str) -> int:
+        
         hash_s, hash_t = {}, {}
 
-        # Map each character in s to its index.
-        for index, char in enumerate(s):
-            hash_s[char] = index
+        for index, value in enumerate(s):
+            hash_s[value] = index
 
-        # Map each character in t to its index.
-        for index, char in enumerate(t):
-            hash_t[char] = index
+        for index, value in enumerate(t):
+            hash_t[value] = index
 
         res = 0
 
-        # For each character in s, add the absolute difference 
-        # between its index in s and its index in t.
-        for char in hash_s:
-            res += abs(hash_s[char] - hash_t[char])
-            
+        for index, value in hash_s.items():
+            if value in hash_t.values():
+                res += abs(hash_s[index] - hash_t[index])
+
         return res
+
+        
