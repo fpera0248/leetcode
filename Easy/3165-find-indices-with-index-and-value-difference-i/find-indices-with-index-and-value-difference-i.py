@@ -22,5 +22,9 @@ class Solution:
             for j in range(len(nums)):
 
                 if abs(i - j) >= indexDifference and abs(nums[i] - nums[j]) >= valueDifference:
-                    return [i,j]
-        return [-1, -1]
+                    answer.append(i)
+                    answer.append(j)
+                    return answer
+
+        if not answer:
+            return [-1, -1]
