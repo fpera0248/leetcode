@@ -1,13 +1,17 @@
-from collections import defaultdict
-from typing import List
-
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        res = defaultdict(list)  # Dictionary to store grouped anagrams
+        helper = {}
+        for st in strs:
+             sortedVersion  = sorted(st)
+             temp = ""
+             for ele in sortedVersion:
+                 temp = temp + ele
+             sortedVersion = temp     
+             if sortedVersion in helper:
+                 helper[sortedVersion].append(st)       
+             else:
+                helper[sortedVersion] = [st]
+        print(helper)
+        return [ele for ele in helper.values()]               
+                
 
-        for word in strs:
-            sorted_word = ''.join(sorted(word))  # Sort characters in word
-
-            res[sorted_word].append(word)  # Group by sorted version
-
-        return list(res.values())  # Convert dictionary values to a list of lists
