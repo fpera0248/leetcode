@@ -6,7 +6,7 @@ class Solution(object):
         :rtype: List[int]
         """
         
-        one, two = set(order), set(friends)
+        two = set(friends)
         res = []
 
         for i in order:
